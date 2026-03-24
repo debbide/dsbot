@@ -7,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useAuthStore } from '@/lib/auth-store'
 import { toast } from 'sonner'
@@ -21,6 +20,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import Link from 'next/link'
+import { Bot, Sparkles, Shield, Zap } from 'lucide-react'
 
 const loginSchema = z.object({
   email: z.string().email('请输入有效的邮箱地址'),
@@ -58,34 +58,95 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/10 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Header */}
-        <div className="mb-8 text-center">
-          <div className="inline-block p-3 bg-primary/10 rounded-lg mb-4">
-            <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.317 4.3671a19.8062 19.8062 0 00-4.885-1.515a.074.074 0 00-.079.0366c-.211.3754-.444.8623-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.3875-.399-.8746-.61-1.25a.077.077 0 00-.079-.0365c-1.751.3013-3.4444.8679-4.8845 1.515a.072.072 0 00-.033.0264C.5087 7.1064.20577 9.7581 1.943 12.2324a.083.083 0 00.032.0456c2.04 1.52 4.025 2.44 5.975 3.0552a.081.081 0 00.088-.0328c.462-.6335.873-1.305 1.226-2.0093a.076.076 0 00-.042-.106c-.634-.2017-1.239-.4925-1.823-.8063a.077.077 0 01-.008-.128c.122-.0922.245-.1884.361-.2887a.077.077 0 01.08-.0105c3.928 1.7953 8.18 1.7953 12.062 0a.077.077 0 01.083.0095c.116.099.242.1964.361.2887a.077.077 0 01-.006.127c-.584.3138-1.189.604-1.823.8062a.077.077 0 00-.042.107c.353.7045.764 1.3745 1.226 2.0093a.076.076 0 00.088.0327c1.95-.6151 3.938-1.548 5.975-3.0524a.077.077 0 00.032-.0456c1.856-2.6672 1.57-5.1878.838-7.5039a.07.07 0 00-.031-.0264z" />
-            </svg>
+    <div className="min-h-screen flex">
+      {/* Left Panel - Branding */}
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-primary/20 via-background to-background">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+        
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-center p-12 xl:p-20">
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
+              <Bot className="w-5 h-5 text-primary" />
+              <span className="text-sm font-medium text-primary">Discord Bot Panel</span>
+            </div>
+            <h1 className="text-4xl xl:text-5xl font-bold text-foreground leading-tight mb-6">
+              强大的机器人
+              <br />
+              <span className="text-primary">管理控制台</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+              一站式管理您的 Discord 机器人，支持命令配置、自动回复、数据统计等丰富功能。
+            </p>
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Bot Control Panel</h1>
-          <p className="text-muted-foreground">管理您的 Discord 机器人</p>
-        </div>
 
-        {/* Login Card */}
-        <Card className="p-8 backdrop-blur-sm bg-card/50 border border-border/50">
+          {/* Features */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4 p-4 bg-card/50 border border-border/50 rounded-xl backdrop-blur-sm">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Zap className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground">实时数据监控</h3>
+                <p className="text-sm text-muted-foreground">查看机器人运行状态和使用统计</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 bg-card/50 border border-border/50 rounded-xl backdrop-blur-sm">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Shield className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground">安全可靠</h3>
+                <p className="text-sm text-muted-foreground">企业级安全防护，数据加密传输</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 bg-card/50 border border-border/50 rounded-xl backdrop-blur-sm">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Sparkles className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground">智能自动化</h3>
+                <p className="text-sm text-muted-foreground">灵活的自动回复和命令配置</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Panel - Login Form */}
+      <div className="flex-1 flex items-center justify-center p-6 sm:p-12 bg-background">
+        <div className="w-full max-w-md">
+          {/* Mobile Logo */}
+          <div className="lg:hidden mb-8 text-center">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Bot className="w-8 h-8 text-primary" />
+              <span className="text-xl font-bold text-foreground">Bot Panel</span>
+            </div>
+          </div>
+
+          {/* Form Header */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">欢迎回来</h2>
+            <p className="text-muted-foreground">请登录您的账户以继续</p>
+          </div>
+
+          {/* Login Form */}
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {/* Email Field */}
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>邮箱地址</FormLabel>
+                    <FormLabel className="text-foreground">邮箱地址</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="admin@example.com"
+                        placeholder="your@email.com"
                         type="email"
+                        className="h-11 bg-secondary/50 border-border/50 focus:border-primary/50 focus:ring-primary/20"
                         disabled={isSubmitting || isLoading}
                         {...field}
                       />
@@ -95,22 +156,22 @@ export default function LoginPage() {
                 )}
               />
 
-              {/* Password Field */}
               <FormField
                 control={form.control}
                 name="password"
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex items-center justify-between">
-                      <FormLabel>密码</FormLabel>
-                      <Link href="#" className="text-sm text-primary hover:underline">
+                      <FormLabel className="text-foreground">密码</FormLabel>
+                      <Link href="#" className="text-sm text-primary hover:text-primary/80 transition-colors">
                         忘记密码？
                       </Link>
                     </div>
                     <FormControl>
                       <Input
-                        placeholder="••••••••"
+                        placeholder="输入您的密码"
                         type="password"
+                        className="h-11 bg-secondary/50 border-border/50 focus:border-primary/50 focus:ring-primary/20"
                         disabled={isSubmitting || isLoading}
                         {...field}
                       />
@@ -120,30 +181,29 @@ export default function LoginPage() {
                 )}
               />
 
-              {/* Remember Me */}
               <FormField
                 control={form.control}
                 name="remember"
                 render={({ field }) => (
-                  <FormItem className="flex items-center space-x-2">
+                  <FormItem className="flex items-center gap-2">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
                         disabled={isSubmitting || isLoading}
+                        className="border-border/50 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                       />
                     </FormControl>
-                    <FormLabel className="font-normal cursor-pointer">
-                      记住我
+                    <FormLabel className="font-normal text-muted-foreground cursor-pointer !mt-0">
+                      保持登录状态
                     </FormLabel>
                   </FormItem>
                 )}
               />
 
-              {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-200"
                 disabled={isSubmitting || isLoading}
               >
                 {isSubmitting || isLoading ? (
@@ -155,21 +215,32 @@ export default function LoginPage() {
                   '登 录'
                 )}
               </Button>
-
-              {/* Demo Hint */}
-              <div className="p-3 bg-muted rounded-lg text-sm text-muted-foreground">
-                <p className="font-medium mb-1">演示账户：</p>
-                <p>邮箱: admin@example.com</p>
-                <p>密码: password123</p>
-              </div>
             </form>
           </Form>
-        </Card>
 
-        {/* Footer */}
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          这是一个前端演示。所有数据均为模拟数据。
-        </p>
+          {/* Demo Account Info */}
+          <div className="mt-6 p-4 bg-secondary/30 border border-border/30 rounded-xl">
+            <div className="flex items-start gap-3">
+              <div className="p-1.5 bg-primary/10 rounded-md mt-0.5">
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-foreground mb-1">演示账户</p>
+                <p className="text-muted-foreground">
+                  邮箱: <span className="text-foreground font-mono">admin@example.com</span>
+                </p>
+                <p className="text-muted-foreground">
+                  密码: <span className="text-foreground font-mono">password123</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            前端演示项目，所有数据均为模拟
+          </p>
+        </div>
       </div>
     </div>
   )
