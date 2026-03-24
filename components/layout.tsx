@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -7,7 +7,7 @@ import {
   Server,
   Command,
   MessageSquare,
-  LogSquare,
+  ScrollText,
   Settings,
   LogOut,
   Sun,
@@ -31,7 +31,7 @@ const navItems = [
   { href: '/servers', label: '服务器管理', icon: Server },
   { href: '/commands', label: '命令管理', icon: Command },
   { href: '/auto-reply', label: '自动回复', icon: MessageSquare },
-  { href: '/logs', label: '日志中心', icon: LogSquare },
+  { href: '/logs', label: '日志中心', icon: ScrollText },
   { href: '/settings', label: '设置', icon: Settings },
 ]
 
