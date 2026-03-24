@@ -1,3 +1,4 @@
+// Discord Bot Control Panel Layout Components
 "use client"
 
 import Link from 'next/link'
