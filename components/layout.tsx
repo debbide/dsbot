@@ -1,6 +1,5 @@
 "use client"
 
-// Layout components for Discord Bot Panel
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
@@ -44,7 +43,6 @@ export function Sidebar() {
 
   return (
     <aside className="fixed left-0 top-0 w-64 h-screen bg-sidebar/80 backdrop-blur-xl border-r border-border/50 hidden lg:flex flex-col">
-      {/* Logo */}
       <div className="h-16 flex items-center gap-3 px-6 border-b border-border/50">
         <div className="p-2 bg-primary/10 rounded-xl border border-primary/20">
           <Bot className="w-5 h-5 text-primary" />
@@ -55,7 +53,6 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         <p className="px-3 py-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">导航</p>
         {navItems.map(({ href, label, icon: Icon }) => {
@@ -79,7 +76,6 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* Footer */}
       <div className="p-4 border-t border-border/50">
         <div className="p-3 bg-secondary/30 rounded-xl border border-border/30">
           <p className="text-xs text-muted-foreground mb-2">系统状态</p>
